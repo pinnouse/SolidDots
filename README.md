@@ -17,6 +17,9 @@ Dot files for my Linux configs
 
 #### Optional:
 - dunst
+- fonts
+  - Source Code Pro
+  - Arial MT Std 
 
 ### Installing:
 folders `bspwm`, `conky`, `polybar`, `sxhkd` place in `~/.config/`
