@@ -17,3 +17,8 @@ Dot files for my Linux configs
 
 #### Optional:
 - dunst
+
+### Installing:
+folders `bspwm`, `conky`, `polybar`, `sxhkd` place in `~/.config/`
+`background.png` and `lock.png` placed in `~/Pictures/`
+`.conkyrc` in home directory `~/`
