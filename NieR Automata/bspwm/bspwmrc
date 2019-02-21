@@ -1,0 +1,65 @@
+#! /bin/sh
+
+#bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor -d I II III IV V
+
+bspc config border_width         2
+bspc config window_gap          12
+
+bspc config normal_border_color = "#48453c"
+bspc config focused_border_color = "#222222"
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   false
+#bspc config gapless_monocle      true
+bspc config gapless_monocle	 false
+
+#bspc rule -a Gimp desktop='^8' state=floating follow=on
+#bspc rule -a Chromium desktop='^2'
+#bspc rule -a mplayer2 state=floating
+#bspc rule -a Kupfer.py focus=on
+#bspc rule -a Screenkey manage=off
+bspc rule -a 'discord' desktop='^5'
+bspc rule -a Conky state=floating manage=off
+
+# KEYBOARD SHORTCUTS
+pkill sxhkd
+sxhkd &
+
+# BLUE LIGHT FILTER
+pkill redshift
+redshift-gtk &
+
+# COMPOSITOR
+#compton --config $HOME/.config/compton/compton.conf &
+
+# URXVT DAEMON
+pkill urxvtd
+urxvtd &
+
+# NETWORK MANAGER
+pkill nm-applet
+nm-applet &
+
+# POLYBAR
+pkill polybar
+$HOME/.config/polybar/launch.sh &
+
+# BACKGROUND
+feh --bg-fill ~/Pictures/background.png &
+
+# CONKY
+pkill conky
+conky -c $HOME/.conkyrc &
+
+# NOTIFICATION MANAGER
+pkill dunst
+dunst &
+
+# TOUCHPAD GESTURES
+libinput-gestures-setup start &
+
+# LOCKSCREEN
+xautolock -detectsleep -time 30 \
+  -locker "$HOME/.config/bspwm/lock.sh" -notify 30 \
+  -notifier "notify-send -u normal -t 10000 -- 'Putting system to sleep'" &

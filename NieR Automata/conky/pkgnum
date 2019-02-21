@@ -1,0 +1,4 @@
+#!/bin/sh
+
+pkgg = `pacman -Q | wc -l`
+echo $pkgg

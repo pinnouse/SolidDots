@@ -1,0 +1,67 @@
+conky.config={
+	alignment = 'middle_right',
+	background = false,
+	cpu_avg_samples = 4,
+
+	border_width = 2,
+
+	default_color = '48453C',
+	default_outline_color = '48453C',
+	default_shade_color = 'black',
+
+	draw_borders = false,
+	draw_graph_borders = false,
+	draw_outline = false,
+	draw_shades = false,
+
+	gap_x = 100,
+	gap_y = -30,
+
+	use_xft = true,
+	font = 'Arial MT Std:pixelsize=18',
+
+	short_units = true,
+
+	minimum_height = 500,
+	maximum_width = 420,
+	minimum_width = 420,
+	double_buffer = true,
+
+	update_interval = 1,
+	out_to_console = false,
+	out_to_stderr = false,
+	extra_newline = false,
+	own_window = true,
+	own_window_colour = 'D4CEB5',
+	own_window_class = 'Conky',
+	own_window_argb_visual = true,
+	own_window_type = 'desktop',
+	own_window_transparent = false,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	stippled_borders = 0,
+
+	use_spacer = 'none',
+
+	lua_load = "~/.config/conky/script.lua",
+	lua_draw_hook_pre = "main"
+};
+
+conky.text = [[
+${offset 10}${voffset 48}$nodename${alignr}${offset -10}Lv: ${utime %M}
+
+${offset 10}${voffset 10}Funds (G):${alignr}${offset -10} ${cpu cpu0}
+${offset 10}${voffset 10}EXP:${alignr}${offset -10}${lua_parse to_int ${to_bytes $fs_used} 1048576}
+${offset 10}${voffset 10}HP:${alignr}${offset -10}${lua_parse to_int ${to_bytes $mem} 1048576} / ${lua_parse to_int ${to_bytes $memmax} 1048576}
+
+${offset 10}${voffset 10}Attack (Light):${alignr}${offset -10}${lua_parse to_int $processes} +${lua_parse format %10s ${running_processes}}
+${offset 10}${voffset 10}Attack (Heavy):${alignr}${offset -10}${lua_parse to_int $threads} +${lua_parse format %10s ${running_threads}}
+${offset 10}${voffset 10}Ranged Attack:${alignr}${offset -10}${lua_parse to_int ${to_bytes $swapfree} 1048576} +${lua_parse format %10s ${swapperc}}
+${offset 10}${voffset 10}Defense:${alignr}${offset -10}${lua_parse to_int ${execi 600 pacman -Qu | wc -l}}
+${execi 600 sudo pacman -Sy >/dev/null 2>&1}
+
+
+
+
+
+${alignc}NO ERROR
+]]
