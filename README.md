@@ -2,7 +2,10 @@
 Dot files for my Linux configs
 
 ## NieR:Automata
-
+<details>
+ <summary>Preview</summary>
+ <p>
+  
 ![NieR Preview](https://i.imgur.com/amNG6JQ.png)
 
  This is my config for NieR:Automata found on this: [reddit post](https://www.reddit.com/r/unixporn/comments/artckf/bspwm_my_cousin_introduced_me_to_this_sub_and_its)
@@ -27,3 +30,5 @@ folders `bspwm`, `conky`, `polybar`, `sxhkd` place in `~/.config/`
 `background.png` and `lock.png` placed in `~/Pictures/`
 
 `.conkyrc` in home directory `~/`
+ </p>
+</details>
